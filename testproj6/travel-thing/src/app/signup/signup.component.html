@@ -1,0 +1,90 @@
+<!-- <div class="py-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        
+        <div class="card rounded-0">
+          <div class="card-header">
+            <h3 class="mb-0">Register</h3>
+          </div>
+          <div class="card-body">
+            <form class="form">
+              <div class="form-group">
+                <label for="">Email</label>
+                <input [(ngModel)]="registerUserData.email" type="text" name="email" class="form-control rounded-0" required>
+              </div>
+              <div class="form-group">
+                <label for="">Password</label>
+                <input [(ngModel)]="registerUserData.password" type="password" name="password" class="form-control rounded-0"  required>
+              </div>
+              <button (click)="registerUser()" type="button" class="btn btn-primary float-right">Register</button>
+            </form>
+          </div>
+        </div>
+  
+      </div>
+  
+  
+    </div>
+  </div> -->
+  <div class="card-body" style="margin:auto; text-align: center;">
+
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <fieldset>
+        <legend>Register:</legend> 
+        <br>
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname" [(ngModel)]="fname"><br>
+        <!-- <div>{{fname}}</div> -->
+        <label *ngIf="!onlyLetters(fname)" class="note" style="font-weight: normal">first name must be letters</label><br>
+
+        <br>
+        <label for="lname">Last Name:</label><br>
+        <input type="text" id="lname" name="lname" [(ngModel)]="lname"><br>
+        <!-- <div>{{lname}}</div> -->
+        <label *ngIf="!onlyLetters(lname)" class="note" style="font-weight: normal">last name must be letters</label><br>
+
+        <br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" [(ngModel)]="email" required><br>
+        <p id="y">*You will log in using your email</p>
+        <!-- <div>{{email}}</div> -->
+        <label *ngIf="!onlyEmail(email)" class="note" style="font-weight: normal">enter valid email format</label><br>
+
+        <!-- {{registerUserData2.email}} -->
+
+        <br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" [(ngModel)]="password" required><br>
+        <!-- <div>{{email}}</div> -->
+        <label *ngIf="!onlyMinLength(password)" class="note" style="font-weight: normal">Minimum length: 3</label><br>
+
+        <br>
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" [(ngModel)]="age"><br>
+        <!-- <div>{{age}}</div> -->
+        <label *ngIf="!onlyNumbers(age)" class="note" style="font-weight: normal">age must be a number</label>
+
+        <br>
+        <br>
+        <label for="gender">Gender</label><br>
+        <input type="radio" id="m" name="gender" [(ngModel)]="gender" value="M">
+        <label for="m">Male</label>
+        <input type="radio" id="f" name="gender" [(ngModel)]="gender" value="F">
+        <label for="f">Female</label><br>
+        <label *ngIf="!genderValid(gender)" class="note" style="font-weight: normal">select gender</label>
+        <br>
+
+        <br>
+            
+    <input type="checkbox" checked id="subscribe" name="subscribe" [(ngModel)]="subscribed">
+    <label for="subscribe"> Receive notifications from us</label><br>
+    <p id="x">*User does not have to subscribe</p>
+    <br><p *ngIf="!formValid" class="note">Form invalid!</p>
+
+    <input type="submit" value="Register" class="btn btn-success float-right" style="margin-top: 10px">
+    <br><br><br><br><br><br>
+
+    </fieldset>
+  
+  </form>
+</div>

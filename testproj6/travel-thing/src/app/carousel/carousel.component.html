@@ -1,0 +1,28 @@
+
+
+      <div class="container">
+        <div [id]="myCarousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+          <li *ngFor="let item of items2; let i = index" [attr.data-slide-to]="i" attr.data-target="#{{myCarousel}}"></li>
+          </ol>
+
+          <div class="carousel-inner" style=" width:800px; height: 400px; margin: auto">
+
+
+              <div class="item" *ngFor="let item of items2;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
+              <img [src]="item[0]" class="d-block w-100" [alt]="item[1]">
+              <!-- <div class="carousel-caption d-none d-md-block">
+                <h3 [textContent]="item[1]"></h3>
+              </div> -->
+          </div>
+      
+          <a class="left carousel-control" [href]="myCarouselRef" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" [href]="myCarouselRef" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>

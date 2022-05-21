@@ -1,0 +1,59 @@
+<h2 mat-dialog-title>Registed Events</h2>
+<mat-dialog-content>
+
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+    
+        
+        <ng-container matColumnDef="position2">
+            
+            <th mat-header-cell *matHeaderCellDef> </th>
+    
+            <td mat-cell *matCellDef="let row">
+                <!-- <button mat-button>Launch</button> -->
+                <!-- <button mat-button color="warn" (click)="printRow(row)">onDelete</button> -->
+                <!-- <input type="checkbox"> -->
+                <!-- <input type='checkbox' ng-init='checkStatus=false' ng-model='checkStatus' (ng-change)='printRow(row)'> -->
+                <!-- <input type="checkbox" [(ngModel)]="item.isChecked" (change)="changeSelection()">{{item.label}} -->
+                <input type="checkbox" *ngIf="!hideCheckbox" [(ngModel)]="row.checked" (change)="printRow(row)">
+            </td>
+          </ng-container>
+        
+        <ng-container matColumnDef="position">
+            
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          <!-- <button mat-icon-button color="primary" (click)="viewContact(row)" title="View Contact">preview</button> -->
+          
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="eventName">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.eventName}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="registered">
+          <th mat-header-cell *matHeaderCellDef> Registered </th>
+          <td mat-cell *matCellDef="let element"> {{element.registered}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="checked">
+            <th mat-header-cell *matHeaderCellDef> Checked </th>
+            <td mat-cell *matCellDef="let element"> {{element.checked}} </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button color="primary" (click)="editReg()">Edit</button>
+  <button mat-button color="warn" *ngIf="!hideCheckbox" (click)="cancelReg()">Cancel Reg</button>
+  <!-- <button mat-button color="warn" (click)="getRegisteredEvents()">get</button> -->
+  <!-- <button mat-button color="warn" (click)="printD()">get</button> -->
+    <button mat-button mat-dialog-close mat-dialog-close="true">Close</button>
+    <!-- <button mat-button mat-dialog-close mat-dialog-close="false">Log out</button> -->
+</mat-dialog-actions>

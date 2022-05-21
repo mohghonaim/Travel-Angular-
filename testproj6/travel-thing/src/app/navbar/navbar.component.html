@@ -1,0 +1,58 @@
+
+    <nav class="navbar navbar-inverse">
+
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" routerLink="/home">Travel Egypt</a>
+          </div>
+
+          <ul class="nav navbar-nav">
+            <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Locations
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a [routerLink]="['/loc', '1']" routerLinkActive="active">Dahab</a></li>
+                <li><a [routerLink]="['/loc', '2']" routerLinkActive="active">Sharm</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Events
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a [routerLink]="['/event', '1']" routerLinkActive="active">ABC Film Festival</a></li>
+                <li><a [routerLink]="['/event', '2']" routerLinkActive="active">ABC Concert</a></li>
+              </ul>
+            </li>
+            
+            <!-- <li><a routerLink="/event" routerLinkActive="active">Events</a></li> -->
+<!--             
+            <li><a [routerLink]="['/loc', '1']" routerLinkActive="active">Dahab1</a></li>
+            <li><a [routerLink]="['/loc', '2']" routerLinkActive="active">Sharm1</a></li> -->
+            <!-- <li><a [routerLink]="['/event', '1']" routerLinkActive="active">ABCFF1</a></li>
+            <li><a [routerLink]="['/event', '2']" routerLinkActive="active">ABCConcert1</a></li> -->
+            <!-- <li><a class="nav-link" routerLink="/eventsignup" routerLinkActive="active">RegisterEvent</a></li> -->
+          </ul>
+
+          
+
+          <ul class="nav navbar-nav navbar-right">
+            
+
+            <li><a class="nav-link"  *ngIf="!loggedIn" routerLink="/signup" routerLinkActive="active">Register</a></li>
+            <li><a class="nav-link" *ngIf="!loggedIn" routerLink="/login" routerLinkActive="active">Login</a></li>
+            <li *ngIf="loggedIn"><app-interested></app-interested></li>
+            
+            <li><a class="nav-link"  *ngIf="loggedIn" routerLink="/" (click)="auth.logoutUser()">Logout</a></li>
+
+          </ul>
+        </div>
+      </nav>
+      
+<!-- 
+      <div *ngIf="loggedIn">Logged In</div>
+    {{loggedIn}}
+    HIII -->
+<!-- </body> -->

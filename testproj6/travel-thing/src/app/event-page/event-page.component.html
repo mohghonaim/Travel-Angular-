@@ -1,0 +1,17 @@
+<h1>{{eventTitle}}</h1>
+
+<img [src]="eventImg" alt="Not found">
+<br>
+<br>
+
+<h4>Date: {{eventDate[0]}}-{{eventDate[1]}}-{{eventDate[2]}}</h4>
+<h4>Location: {{eventLoc}}</h4>
+
+<app-map [mapCoords]="locMapCoords"></app-map>
+<br><br>
+
+<!-- by pass id bta3t l event -->
+<button type="button" class="btn btn-success float-right" [routerLink]="['/eventsignup', id]">Register for event</button>
+<!-- ht-confirm l details -->
+
+<div><br><br><br><br><br><br><br><br/></div>
